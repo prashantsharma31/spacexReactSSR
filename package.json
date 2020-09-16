@@ -5,9 +5,18 @@
   "engines": {
     "node": "10.14.2"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "setupFiles": [
+      "./src/client/test/setupTest.js"
+    ]
+  },
   "main": "index.js",
   "scripts": {
     "start": "node build/bundle.js",
+    "test": "jest",
     "build:prod": "rm -rf build && rm -rf public && webpack  --config webpack.server.js && webpack -p --config webpack.client.prod.js --mode production",
     "heroku-postbuild": "npm install && npm run build:prod",
     "webpack-prod": "webpack -p --progress --config webpack.client.prod.js --mode production",
@@ -26,13 +35,17 @@
     "compression": "^1.7.4",
     "compression-webpack-plugin": "^5.0.2",
     "concurrently": "5.3.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
     "express": "4.17.1",
+    "jest": "^26.4.2",
+    "jest-cli": "^26.4.2",
     "lodash": "4.17.20",
     "nodemon": "2.0.4",
     "npm-run-all": "4.1.5",
     "prop-types": "^15.7.2",
-    "react-dom": "16.13.1",
     "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-helmet": "6.1.0",
     "react-lazy-load-image-component": "^1.5.0",
     "react-redux": "7.2.1",
@@ -42,8 +55,8 @@
     "redux-thunk": "2.3.0",
     "serialize-javascript": "5.0.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack-dev-server": "3.11.0",
     "webpack": "4.44.1",
+    "webpack-dev-server": "3.11.0",
     "webpack-merge": "4.2.2",
     "webpack-node-externals": "2.5.2"
   },
