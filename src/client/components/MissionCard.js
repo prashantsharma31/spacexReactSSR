@@ -6,7 +6,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
         return (
             <div className="card medium p-3">
                 <div className="card-image grey lighten-3">
-                <LazyLoadImage className="h-100 w-100" alt={project.rocket.rocket_id} src={project.links.mission_patch_small} />
+                <LazyLoadImage className="h-100 w-100" alt={project.rocket.rocket_id} src={project.links.mission_patch_small
+                    ? project.links.mission_patch_small : `https://images2.imgbox.com/d2/3b/bQaWiil0_o.png`} />
                 </div>
                 <div className="mt-3 mb-3 small">
                     <b>
@@ -35,13 +36,14 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
                     <b>
                         <span className="black-text">Successful Launch: </span>
                     </b>
-                    <span className="blue-text">{`${project.launch_success}`}</span>
+                    <span className="blue-text">{ project.launch_success ? `${project.launch_success}` : 'false'}</span>
                 </div>
                 <div className="mt-1 mb-1 small">
                     <b>
                         <span className="black-text">Successful Landing: </span>
                     </b>
-                    <span className="blue-text">{project.rocket.first_stage.cores[0] && project.rocket.first_stage.cores[0].land_success && `${project.rocket.first_stage.cores[0].land_success}`}</span>
+                    <span className="blue-text">{project.rocket.first_stage.cores[0]
+                     && project.rocket.first_stage.cores[0].land_success ? `${project.rocket.first_stage.cores[0].land_success}` : 'false'}</span>
                 </div>
             </div>
         );
