@@ -23,26 +23,6 @@ const HomePage = props => {
   const closeModal = () => {
     setModal(false);
   };
-
-  const renderMissions = () => {
-    return props.spaceXdata.length > 0 ? props.spaceXdata.map(project => (
-      <div className="col-12 col-md-6 col-lg-3" key= {`${project.mission_name}_${project.flight_number}`}>
-        <MissionCard project={project} />
-      </div>
-    )) : <h1>No data found with specific filter</h1>;
-  };
-
-  const renderFilter = () => {
-    return (
-      <div className="bg-white p-2">
-        <h5 className="text-bold text-left">Filters</h5>
-                  <FilterSection handleClick={handleYearFilter} filterName="Launch Year" filterValues = {yearFilter} />
-                  <FilterSection handleClick={handleLaunchFilter} filterName="Successful Launch" filterValues = {launchFilter} />
-                  <FilterSection handleClick={handleLandingFilter} filterName="Successful Landing" filterValues = {launchFilter} />
-                </div>
-    );
-  }
-
   const handleYearFilter = (e) => {
     setYear(e);
    }
@@ -53,14 +33,32 @@ const HomePage = props => {
     setLanding(e);
    }
    
+   const setFilterData = (year,landing,launch) => {
+    let source = {};
+    source =  year ? {...source,launch_year: year} : source;
+    source = launch ? {...source,launch_success: launch} : source;
+    source = landing ? {...source,land_success: landing} : source;
+    props.fetchMissions(source);
+  }
+    
+  const renderMissions = () => {
+    return props.spaceXdata.length > 0 ? props.spaceXdata.map(project => (
+      <div className="col-12 col-md-6 col-lg-3" key= {`${project.mission_name}_${project.flight_number}`}>
+        <MissionCard project={project} />
+      </div>
+    )) : <h1>No data found with specific filter</h1>;
+  };
 
-    const setFilterData = (year,landing,launch) => {
-      let source = {};
-      source =  year ? {...source,launch_year: year} : source;
-      source = launch ? {...source,launch_success: launch} : source;
-      source = landing ? {...source,land_success: landing} : source;
-      props.fetchMissions(source);
-    }
+  const renderFilter = () => {
+    return (
+      <div className="bg-white p-2 mb-2">
+        <h5 className="text-bold text-left">Filters</h5>
+                  <FilterSection handleClick={handleYearFilter} filterName="Launch Year" filterValues = {yearFilter} />
+                  <FilterSection handleClick={handleLaunchFilter} filterName="Successful Launch" filterValues = {launchFilter} />
+                  <FilterSection handleClick={handleLandingFilter} filterName="Successful Landing" filterValues = {launchFilter} />
+                </div>
+    );
+  }
 
   const head = () => {
     return (
