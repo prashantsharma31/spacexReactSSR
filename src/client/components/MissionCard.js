@@ -15,6 +15,18 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
                 </div>
                 <div className="mt-1 mb-1 small">
                     <b>
+                        <span className="black-text">Mission Ids: </span>
+                    </b>
+                    <span className="blue-text">
+                    {project.mission_id && <ul>
+                             { project.mission_id.map(id => {
+                              return (  <li key={id}>{id}</li>);
+                            })}
+                        </ul>}
+                    </span>
+                </div>
+                <div className="mt-1 mb-1 small">
+                    <b>
                         <span className="black-text">Launch Year: </span>
                     </b>
                     <span className="blue-text">{`${project.launch_year}`}</span>

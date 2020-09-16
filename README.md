@@ -1,6 +1,6 @@
-# SSR News - React
+# SSR Spacex - React
 
-React Server Side Rendering demo project. This project uses [News API](https://newsapi.org/) under the hood.
+React Server Side Rendering demo project.
 
 Demo: [Click to see DEMO](https://spacexssrreact.herokuapp.com/)
 

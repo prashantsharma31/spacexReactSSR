@@ -25,7 +25,7 @@ import React, { useState , useEffect, useRef } from 'react';
                         let classValue = textValue == activeButton ?
                         "btn-small w-75 light-green black-text p-0 text-center accent-4" :
                         "btn-small w-75 p-0  text-center black-text light-green accent-1"
-                        return <div className="col-6 p-1"> 
+                        return <div key={value} className="col-6 p-1"> 
                             <button key={textValue} className= { classValue } 
                             onClick= {() => testClick(textValue) }>
                              {value}</button>

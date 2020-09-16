@@ -25,11 +25,11 @@ const HomePage = props => {
   };
 
   const renderMissions = () => {
-    return props.spaceXdata.map(project => (
-      <div className="col-12 col-md-6 col-lg-3" key={project.flight_number}>
+    return props.spaceXdata.length > 0 ? props.spaceXdata.map(project => (
+      <div className="col-12 col-md-6 col-lg-3" key= {`${project.mission_name}_${project.flight_number}`}>
         <MissionCard project={project} />
       </div>
-    ));
+    )) : <h1>No data found with specific filter</h1>;
   };
 
   const renderFilter = () => {
