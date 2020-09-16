@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
  const MissionCard = (props) => {
         let {project} = props;
         return (
-            <div className="card medium p-3">
+            <div className="white medium p-3 mb-3">
                 <div className="card-image grey lighten-3">
                 <LazyLoadImage className="h-100 w-100" alt={project.rocket.rocket_id} src={project.links.mission_patch_small
                     ? project.links.mission_patch_small : `https://images2.imgbox.com/d2/3b/bQaWiil0_o.png`} />
