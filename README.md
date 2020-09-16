@@ -7,11 +7,9 @@ Demo: [Click to see DEMO](https://spacexssrreact.herokuapp.com/)
 
 ## Getting Started
 
-This project created for a Meetup talk about Server Side Rendering with React.
+This project created for a  Server Side Rendering with React hooks for SpaceX record data.
 
-There is also a SPA version of same project.
 
-- [Visit Repo](https://github.com/prashantsharma31/spacexReactSSR)
 
 ### Installing
 
@@ -33,6 +31,12 @@ Run on local
 
 ```sh
 $ npm run dev
+```
+
+Test on local
+
+```sh
+$ npm run test
 ```
 
 Navigate to [http://localhost:3000](http://localhost:3000)
