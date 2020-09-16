@@ -8,7 +8,7 @@ Demo: [Click to see DEMO](https://spacexssrreact.herokuapp.com/)
 ## Getting Started
 
 This project created for a  Server Side Rendering with React hooks for SpaceX record data.
-
+It covers React Hooks, server side rendering ,redux with redux-thunk and unit test cases 
 
 
 ### Installing
